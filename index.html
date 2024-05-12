@@ -11,12 +11,12 @@
         <h1>Embed Code Form</h1>
     </header>
     <main>
-        <form action="preview.html" method="post">
+        <form action="preview.html" method="get">
             <label for="embedCode">Embed Code:</label>
             <textarea id="embedCode" name="embedCode" rows="8" cols="50" required></textarea>
 
             <label for="buyButtonLink">Stripe "Buy Button" Link:</label>
-            <input type="text" id="buyButtonLink" name="buyButtonLink" placeholder="Enter Stripe Buy Button Link">
+            <input type="text" id="buyButtonLink" name="buyButtonLink" placeholder="Enter Stripe Buy Button Link" required>
 
             <button type="submit">Preview</button>
         </form>
