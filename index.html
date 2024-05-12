@@ -43,7 +43,7 @@
     <label for="brand">Clothing Brand Name:</label>
     <input type="text" id="brand" name="brand" required>
 
-    <label for="embedCode">HTML Embed Code:</label>
+    <label for="embedCode">HTML Embed:</label>
     <textarea id="embedCode" name="embedCode" rows="4" cols="50" required></textarea>
 
     <label for="type">Clothing Type:</label>
@@ -68,6 +68,7 @@ function submitForm() {
 
     // Constructing the HTML to display
     var html = "<p>Clothing Brand Name: " + brand + "</p>";
+    html += "<p>" + embedCode + "</p>";
     html += "<p>Clothing Type: " + type + "</p>";
     html += "<p>Amount: " + amount + "</p>";
     html += "<button onclick=\"window.open('" + url + "', '_blank')\">Buy Now</button>";
