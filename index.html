@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Embed Code Form</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <header>
+        <h1>Embed Code Form</h1>
+    </header>
+    <main>
+        <form action="preview.html" method="post">
+            <label for="embedCode">Embed Code:</label>
+            <textarea id="embedCode" name="embedCode" rows="8" cols="50" required></textarea>
+
+            <label for="buyButtonLink">Stripe "Buy Button" Link:</label>
+            <input type="text" id="buyButtonLink" name="buyButtonLink" placeholder="Enter Stripe Buy Button Link">
+
+            <button type="submit">Preview</button>
+        </form>
+    </main>
+</body>
+</html>
