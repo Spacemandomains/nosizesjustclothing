@@ -11,14 +11,12 @@
         <h1>Embed Code Preview</h1>
     </header>
     <main>
-        <div class="preview">
-            <h2>Embed Code:</h2>
-            <div class="embed-code">
-                <?php echo $_POST['embedCode']; ?>
-            </div>
-            <h2>Stripe "Buy Button" Link:</h2>
-            <p><?php echo $_POST['buyButtonLink']; ?></p>
+        <h2>Embed Code:</h2>
+        <div class="embed-code">
+            <?php echo $_GET['embedCode']; ?>
         </div>
+        <h2>Stripe "Buy Button" Link:</h2>
+        <p><?php echo $_GET['buyButtonLink']; ?></p>
     </main>
 </body>
 </html>
