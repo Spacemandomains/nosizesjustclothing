@@ -7,21 +7,89 @@
 </head>
 <body>
     <h1>Welcome to the Member's Dashboard</h1>
-    <form id="purchaseForm" class="form-control">
-        <label for="brand">Clothing Brand Name:</label>
-        <input type="text" id="brand" name="brand" required>
-        
-        <label for="type">Clothing Type:</label>
-        <input type="text" id="type" name="type" required>
-        
-        <label for="amount">Amount:</label>
-        <input type="number" id="amount" name="amount" required>
-        
-        <label for="url">URL Link:</label>
-        <input type="url" id="url" name="url" required>
-        
-        <button type="button" onclick="submitForm()">Buy Now</button>
-    </form>
+   <!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Clothing Purchase Form</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+    }
+    form {
+        max-width: 600px;
+        margin: 0 auto;
+    }
+    label {
+        display: block;
+        margin-bottom: 5px;
+    }
+    input[type="text"], input[type="url"], input[type="number"], textarea {
+        width: 100%;
+        padding: 8px;
+        margin-bottom: 15px;
+        border: 1px solid #ccc;
+        border-radius: 4px;
+        box-sizing: border-box;
+    }
+    button {
+        background-color: #4CAF50;
+        color: white;
+        padding: 10px 20px;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+    }
+    button:hover {
+        background-color: #45a049;
+    }
+</style>
+</head>
+<body>
+
+<form id="purchaseForm">
+    <label for="brand">Clothing Brand Name:</label>
+    <input type="text" id="brand" name="brand" required>
+
+    <label for="embedCode">HTML Embed:</label>
+    <textarea id="embedCode" name="embedCode" rows="4" cols="50" required></textarea>
+
+    <label for="type">Clothing Type:</label>
+    <input type="text" id="type" name="type" required>
+
+    <label for="amount">Amount:</label>
+    <input type="number" id="amount" name="amount" required>
+
+    <label for="url">URL Link:</label>
+    <input type="url" id="url" name="url" required>
+
+    <button type="button" onclick="submitForm()">Submit Form</button>
+</form>
+
+<script>
+function submitForm() {
+    var brand = document.getElementById("brand").value;
+    var type = document.getElementById("type").value;
+    var amount = document.getElementById("amount").value;
+    var url = document.getElementById("url").value;
+    var embedCode = document.getElementById("embedCode").value;
+
+    // Constructing the HTML to display
+    var html = "<p>Clothing Brand Name: " + brand + "</p>";
+    html += "<p>" + embedCode + "</p>";
+    html += "<p>Clothing Type: " + type + "</p>";
+    html += "<p>Amount: " + amount + "</p>";
+    html += "<button onclick=\"window.open('" + url + "', '_blank')\">Buy Now</button>";
+
+    // Displaying the HTML on another webpage
+    var displayWindow = window.open("", "_blank");
+    displayWindow.document.write(html);
+}
+</script>
+
 </body>
 </html>
 
+</body>
+</html>
