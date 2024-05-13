@@ -49,8 +49,8 @@
     <label for="type">Clothing Type:</label>
     <input type="text" id="type" name="type" required>
 
-    <label for="amount">Amount:</label>
-    <input type="number" id="amount" name="amount" required>
+    <label for="Price">Price:</label>
+<input type="number" id="Price" name="Price" required>
 
     <label for="url">URL Link:</label>
     <input type="url" id="url" name="url" required>
@@ -62,7 +62,7 @@
 function submitForm() {
     var brand = document.getElementById("brand").value;
     var type = document.getElementById("type").value;
-    var amount = document.getElementById("amount").value;
+    var amount = document.getElementById("Price").value;
     var url = document.getElementById("url").value;
     var embedCode = document.getElementById("embedCode").value;
 
@@ -70,7 +70,7 @@ function submitForm() {
     var html = "<p>Clothing Brand Name: " + brand + "</p>";
     html += "<p>" + embedCode + "</p>";
     html += "<p>Clothing Type: " + type + "</p>";
-    html += "<p>Amount: " + amount + "</p>";
+    html += "<p>Price: " + price + "</p>";
     html += "<button onclick=\"window.open('" + url + "', '_blank')\">Buy Now</button>";
 
     // Displaying the HTML on another webpage
