@@ -1,34 +1,47 @@
-// Function to generate a unique identifier (e.g., a random ID)
-function generateUniqueIdentifier() {
-    // Logic to generate a unique identifier (e.g., a random string)
-    // You can use libraries like UUID or generate a unique ID based on timestamp, etc.
-    return 'unique-id'; // Replace with actual unique identifier
+// Initialize array to store user credentials
+let users = [];
+
+// Check if there are existing users in local storage
+const storedUsers = localStorage.getItem('users');
+if (storedUsers) {
+    users = JSON.parse(storedUsers);
 }
 
-// Function to handle form submission
-function handleFormSubmission(formData) {
-    // Generate a unique identifier for the submitted data
-    const uniqueIdentifier = generateUniqueIdentifier();
-    
-    // Save the form data and unique identifier (e.g., in local storage, database, etc.)
-    // For demonstration purposes, let's save it in local storage
-    localStorage.setItem(uniqueIdentifier, JSON.stringify(formData));
-    
-    // Redirect to the dynamically generated preview page
-    window.location.href = `preview.html?id=${uniqueIdentifier}`;
-}
-
-// Add event listener to the HTML form
-document.getElementById('html-form').addEventListener('submit', function(event) {
+// Login form submission
+document.getElementById('login-form').addEventListener('submit', function(event) {
     event.preventDefault();
 
-    // Collect form data (e.g., input values)
-    const formData = {
-        // Get form data based on your form structure
-        // For example:
-        // fieldName: document.getElementById('fieldId').value
-    };
+    const username = document.getElementById('username').value;
+    const password = document.getElementById('password').value;
 
-    // Handle form submission
-    handleFormSubmission(formData);
+    const authenticatedUser = users.find(user => user.username === username && user.password === password);
+
+    if (authenticatedUser) {
+        // Redirect to dashboard on successful login
+        window.location.href = 'dashboard.html';
+    } else {
+        document.getElementById('error-message').innerText = 'Invalid username or password';
+    }
+});
+
+// Registration form submission
+document.getElementById('register-form').addEventListener('submit', function(event) {
+    event.preventDefault();
+
+    const newUsername = document.getElementById('new-username').value;
+    const newPassword = document.getElementById('new-password').value;
+
+    // Check if the username is already taken
+    const usernameExists = users.some(user => user.username === newUsername);
+
+    if (usernameExists) {
+        document.getElementById('error-message').innerText = 'Username already exists. Please choose a different username.';
+    } else {
+        // Add new user to the array
+        users.push({ username: newUsername, password: newPassword });
+        // Save updated user array to local storage
+        localStorage.setItem('users', JSON.stringify(users));
+        // Display success message
+        document.getElementById('success-message').innerText = 'Registration successful! You can now login with your new credentials.';
+    }
 });
