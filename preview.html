@@ -1,1 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Preview</title>
+</head>
+<body>
+    <h1>HTML Preview</h1>
+
+    <!-- Display HTML preview content here -->
+    <div id="preview-content">
+        <!-- JavaScript will populate this div with the preview content -->
+    </div>
+
+    <script>
+        // Retrieve the unique identifier from the URL
+        const urlParams = new URLSearchParams(window.location.search);
+        const uniqueIdentifier = urlParams.get('id');
+
+        // Retrieve the submitted form data associated with the unique identifier
+        const formData = JSON.parse(localStorage.getItem(uniqueIdentifier));
+
+        // Generate HTML content based on the retrieved form data and display it
+        const previewContent = `
+            <!-- Generate HTML content based on form data -->
+            <!-- For example: -->
+            <p>Field 1: ${formData.field1}</p>
+            <p>Field 2: ${formData.field2}</p>
+            <!-- Include other form fields as needed -->
+        `;
+
+        // Display the HTML content in the preview section
+        document.getElementById('preview-content').innerHTML = previewContent;
+    </script>
+</body>
+</html>
 
