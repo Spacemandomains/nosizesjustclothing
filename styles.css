@@ -79,3 +79,26 @@ button {
 button:hover {
     background-color: #0056b3;
 }
+
+/* Navigation buttons */
+.nav-btn {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-right: 10px;
+}
+
+.nav-btn:hover {
+    background-color: #0056b3;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
